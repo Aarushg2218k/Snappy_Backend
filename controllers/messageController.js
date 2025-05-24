@@ -58,7 +58,7 @@ module.exports.addMessage = async (req, res) => {
 };
 
 module.exports.editMessage = async (req, res) => {
-  console.log(req.body);
+  console.log(req.body.id);
   try {
     const { messageId, message: newText, userId, to } = req.body;
 

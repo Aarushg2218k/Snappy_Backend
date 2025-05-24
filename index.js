@@ -38,7 +38,7 @@ const server = app.listen(process.env.PORT, () =>
 // ====== Socket.IO Setup ======
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000", // adjust if your frontend is hosted elsewhere
+    origin: "https://snappy-frontend-seven.vercel.app/", // adjust if your frontend is hosted elsewhere
     credentials: true,
   },
 });

@@ -15,7 +15,7 @@ app.use(express.json());
 
 // ====== MongoDB Connection ======
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(process.env.MONGO_URL || "mongodb+srv://aarushgoyal1011:Aarushg2218k@chat-app.xqbqgcd.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

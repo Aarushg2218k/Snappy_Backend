@@ -10,12 +10,17 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://snappy-frontend-seven.vercel.app/",
+  credentials: true,
+}));
+
 app.use(express.json());
 
 // ====== MongoDB Connection ======
 mongoose
   .connect(process.env.MONGO_URL || "mongodb+srv://aarushgoyal1011:Aarushg2218k@chat-app.xqbqgcd.mongodb.net/", {
+  // .connect(process.env.MONGO_URL || "mongodb://localhost:27017/chat", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -38,7 +43,9 @@ const server = app.listen(process.env.PORT, () =>
 // ====== Socket.IO Setup ======
 const io = socket(server, {
   cors: {
+    // origin: "http://localhost:3000",
     origin: "https://snappy-frontend-seven.vercel.app/", // adjust if your frontend is hosted elsewhere
+    methods: ["GET", "POST"],
     credentials: true,
   },
 });
